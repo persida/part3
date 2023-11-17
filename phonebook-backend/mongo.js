@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 if (process.argv.length<3) {
     console.log('give password as argument')
     process.exit(1)
-  }
+}
 
 const password = process.argv[2]
 
@@ -22,10 +22,10 @@ const Person = mongoose.model('Person', personSchema)
 if (process.argv.length === 3) {
     console.log('phonebook:')
     Person.find({}).then(result => {
-      result.forEach(person => {
-        console.log(person.name, ' ', person.number)
-      })
-      mongoose.connection.close()
+        result.forEach(person => {
+            console.log(person.name, ' ', person.number)
+        })
+        mongoose.connection.close()
     })
 } else {
     const person = new Person({
